@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index (snake)</title> 
+    <style>
+        body {
+            background: #FACC2E;
+            text-align: center;
+        }
+
+        canvas {border: 10px solid #B40431;}
+    </style>
+</head>
+<body>
+    
+<canvas width="500" height="500"></canvas>
+<script>
+const canvas = document.querySelector(`canvas`);
+const ctx = canvas.getContext(`2d`);
+
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+ctx.lineWidth = 5;
+ctx.strokeStyle = `black`;
+ctx.moveTo(300, 100);
+ctx.lineTo(300, 400);
+ctx.stroke();
+</script>
+</body>
+</html>
