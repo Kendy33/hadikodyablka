@@ -38,7 +38,7 @@ let velocityY = 0;
 function gameLoop() {
    drawStuff ();
    moveStuff ();
-    requestAnimationFrame(gameLoop)
+   setTimeout(gameLoop, 1000/ 15)
 }
 gameLoop();
 
@@ -47,7 +47,7 @@ gameLoop();
  */
 function moveStuff() {
 snakePosX += snakeSpeed * velocityX;
-snakePosY += snakeSpeed * velocityY
+snakePosY += snakeSpeed * velocityY;
 
 if (snakePosX > canvas.width) {
     snakePosX = 0
@@ -66,8 +66,21 @@ if (snakePosY < -snakeSize) {
 /**
  * DRAW EVERYTHING
  */
+
+ //background
+
 function drawStuff() {
- rectangle(`white`, 0, 0, canvas.width, canvas.height)
+ rectangle(`#FACC2E`, 0, 0, canvas.width, canvas.height)
+
+ //grid
+
+ for (let i = 0; i < canvas.width / snakeSize; i++) {
+    for (let j = 0; j < canvas.height / snakeSize; j++) { 
+    rectangle("#fff", snakeSize * i, snakeSize * j, snakeSize - 1, snakeSize - 1);
+    }
+     }
+ 
+ //snake
  rectangle(`black`, snakePosX, snakePosY, snakeSize, snakeSize)
 
     
